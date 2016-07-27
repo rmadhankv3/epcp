@@ -4,6 +4,7 @@
     "keywords": ["util", "functional", "server", "client", "browser"],
     "author": "mramachandra",
     "contributors": [],
+    "main": "main.js",
     "dependencies": {
         "express":"*"
     }
