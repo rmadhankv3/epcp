@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="js/libs/jquery-mobile/jquery.mobile-1.4.5.css" />
+        <script src="js/libs/jquery/jquery-1.11.3.min.js"></script>
+        <script src="js/libs/projectJS/madJS.js"></script>
+        <script src="js/libs/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+</head>
+
+<body onload="init();">
+    <!-- Start of first page -->
+    <div data-role="page" id="foo">
+
+            <div data-role="header">
+                <h1>Project X Mad</h1>
+            </div><!-- /header -->
+            <div data-role="content">
+                <form>
+                    <a class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" href="#popupSignup" data-rel="popup" data-position-to="window" data-transition="pop">Sign Up</a>
+                    <div class="ui-corner-all" id="popupSignup" data-role="popup" data-theme="a" data-overlay-theme="b">
+
+                        <div style="padding: 10px 20px;">
+                            <h3>Please Sign Up</h3>
+                            <label class="ui-hidden-accessible" for="un">Username:</label>
+                            <input name="user" id="un" type="text" placeholder="username" value="" data-theme="a" required>
+                            <label class="ui-hidden-accessible" for="pw">Password:</label>
+                            <input name="pass" id="pw" type="password" placeholder="password" value="" data-theme="a" required>
+                            <label class="ui-hidden-accessible" for="un">Email:</label>
+                            <input name="user" id="un" type="email" placeholder="email" value="" data-theme="a" required>
+                            <button class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" type="submit" onclick="signup();">Sign Up</button>
+                        </div>
+                    </div>
+
+                    <a class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" href="#popupLogin" data-rel="popup" data-position-to="window" data-transition="pop">Sign in</a>
+                    <div class="ui-corner-all" id="popupLogin" data-role="popup" data-theme="a" data-overlay-theme="b">                    
+                        <div style="padding: 10px 20px;">
+                            <h3>Please Sign In</h3>
+                            <label class="ui-hidden-accessible" for="un">Username:</label>
+                            <input name="user" id="unin" type="text" placeholder="username" value="" data-theme="a" >
+                            <label class="ui-hidden-accessible" for="pw">Password:</label>
+                            <input name="pass" id="pwin" type="password" placeholder="password" value="" data-theme="a">                            
+                            <button class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" type="submit" onclick="signin();">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div data-role="footer">
+                    <h4>copyrights @ mad</h4>
+            </div><!-- /footer -->
+            
+
+    </div><!-- /page -->
+</body>
+</html>
