@@ -5,6 +5,9 @@
  */
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function (req, res) {
@@ -15,7 +18,7 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     console.log(req);
-    res.send(req.params);
+    res.send(req.body);
 });
 
 app.listen(process.env.PORT, function () {
