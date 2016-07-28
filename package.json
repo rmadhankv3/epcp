@@ -9,6 +9,7 @@
     },
     "main": "main.js",
     "dependencies": {
-        "express":"*"
+        "express":"*",
+        "body-parser": "*"
     }
 }
