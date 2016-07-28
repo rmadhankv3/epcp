@@ -12,6 +12,12 @@ app.get('/', function (req, res) {
 
 });
 
+app.post('/', function (req, res) {
+    console.log(req);
+    res.send(req);
+
+});
+
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port 3000!');
 });
