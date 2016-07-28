@@ -6,6 +6,10 @@
 var express = require('express');
 var app = express();
 
+var url = require('url');
+var url_parts = url.parse(request.url, true);
+var query = url_parts.query;
+
 app.get('/', function (req, res) {
     console.log(req);
     res.send('Hello World!');
@@ -14,8 +18,9 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     console.log(req);
-
-    res.send(req.params);
+    var url_parts = url.parse(request.url, true);
+    var query = url_parts.query;
+    res.send(query);
 
 });
 
