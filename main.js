@@ -6,9 +6,6 @@
 var express = require('express');
 var app = express();
 
-var url = require('url');
-var url_parts = url.parse(request.url, true);
-var query = url_parts.query;
 
 app.get('/', function (req, res) {
     console.log(req);
@@ -18,10 +15,7 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     console.log(req);
-    var url_parts = url.parse(request.url, true);
-    var query = url_parts.query;
-    res.send(query);
-
+    res.send(req.params);
 });
 
 app.listen(process.env.PORT, function () {
