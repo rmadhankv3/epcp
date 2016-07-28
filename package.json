@@ -1,15 +1,13 @@
 {
-    "name": "epcp-heroku3",
+    "name": "EPCP-nodejs",
     "version": "1.0.0",
     "keywords": ["util", "functional", "server", "client", "browser"],
     "author": "mramachandra",
     "contributors": [],
-    "scripts": {
-        "start": "node main.js"
-    },
-    "main": "main.js",
     "dependencies": {
-        "express":"*",
-        "body-parser": "*"
+        "express": "*",
+        "body-parser": "*",
+        "fs": "*"
+        
     }
 }

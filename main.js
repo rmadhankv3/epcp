@@ -1,26 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 var express = require('express');
 var app = express();
+var fs = require("fs");
+
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', function (req, res) {
-    console.log(req);
-    res.send('Hello World!');
-
+app.get('/index.htm', function (req, res) {
+   res.sendFile( __dirname + "/" + "index.html" );
 });
 
-app.post('/', function (req, res) {
+app.post('/token', function (req, res) {
     console.log(req);
     res.send(req.body);
 });
 
-app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port 3000!');
+var server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log("Example app listening at http://"+host+":"+port);
+
 });
