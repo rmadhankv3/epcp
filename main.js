@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var TOKEN = '';
 
 var bodyParser = require('body-parser');
 
@@ -14,6 +15,8 @@ app.get('/', function (req, res) {
 app.post('/token', function (req, res) {
     console.log(req);
     res.send(req.body);
+    TOKEN = req.body.token;
+    console.log('token : '+TOKEN);
 });
 
 var server = app.listen(process.env.PORT, function () {
