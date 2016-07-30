@@ -19,6 +19,7 @@ app.post('/token', function (req, res) {
     TOKEN = req.body.token;
     console.log('token : '+TOKEN);
     getIdentifier(res);
+    res.send(req.body);
 });
 
 var server = app.listen(process.env.PORT, function () {
@@ -45,7 +46,7 @@ function getIdentifier(res){
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
       console.log('BODY: ' + chunk);
-      res.send(chunk);
+      //res.send(chunk);
     });
   }).end();
 }
