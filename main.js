@@ -36,7 +36,7 @@ function getIdentifier(res){
     host: 'https://rpxnow.com',
     port: 80,
     path: '/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN,
-    method: 'POST'
+    method: 'GET'
   };
 
   http.request(options, function(res) {
