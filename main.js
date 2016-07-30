@@ -15,9 +15,10 @@ app.get('/', function (req, res) {
 
 app.post('/token', function (req, res) {
     console.log(req);
-    res.send(req.body);
+    //res.send(req.body);
     TOKEN = req.body.token;
     console.log('token : '+TOKEN);
+    getIdentifier(res);
 });
 
 var server = app.listen(process.env.PORT, function () {
