@@ -5,6 +5,9 @@
     "author": "mramachandra",
     "contributors": [],
     "main": "main.js",
+    "scripts": {
+      "start": "node main.js"
+    },
     "dependencies": {
         "express": "*",
         "body-parser": "*",
