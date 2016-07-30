@@ -20,7 +20,7 @@ app.post('/token', function (req, res) {
     //res.send(req.body);
     TOKEN = req.body.token;
     console.log('token : '+TOKEN);
-    getIdentifier(res);
+    getIdentifier();
     res.send(req.body);
 });
 
@@ -34,7 +34,7 @@ var server = app.listen(process.env.PORT, function () {
 });
 
 
-function getIdentifier(res){
+function getIdentifier(){
 /*
   var options = {
     host: 'rpxnow.com',
@@ -54,7 +54,7 @@ function getIdentifier(res){
   }).end();
 */
 
-  var request = require('request');
+  //var request = require('request');
   var url = 'http://rpxnow.com/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN;
   request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
