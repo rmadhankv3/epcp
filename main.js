@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/index.htm', function (req, res) {
+app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );
 });
 
