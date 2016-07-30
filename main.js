@@ -33,7 +33,7 @@ var server = app.listen(process.env.PORT, function () {
 
 function getIdentifier(res){
   var options = {
-    host: 'https://rpxnow.com',
+    host: 'rpxnow.com',
     port: 80,
     path: '/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN,
     method: 'GET'
