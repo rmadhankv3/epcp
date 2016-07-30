@@ -27,6 +27,11 @@ app.post('/token', function (req, res) {
     //res.send(req.body);
 });
 
+app.get('/token', function (req, res) {
+   res.sendFile( __dirname + "/" + "index.html" );
+});
+
+
 var server = app.listen(process.env.PORT, function () {
 
   var host = server.address().address;
