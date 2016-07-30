@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var TOKEN = '';
-var https = require('https');
+//var http = require('http');
+var request = require('request');
 
 
 var bodyParser = require('body-parser');
@@ -34,7 +35,7 @@ var server = app.listen(process.env.PORT, function () {
 
 
 function getIdentifier(res){
-
+/*
   var options = {
     host: 'rpxnow.com',
     port: 80,
@@ -42,7 +43,7 @@ function getIdentifier(res){
     method: 'GET'
   };
 
-  https.request(options, function(res) {
+  http.request(options, function(res) {
     console.log('STATUS: ' + res.statusCode);
     console.log('HEADERS: ' + JSON.stringify(res.headers));
     res.setEncoding('utf8');
@@ -51,5 +52,15 @@ function getIdentifier(res){
       //res.send(chunk);
     });
   }).end();
+*/
 
+  var request = require('request');
+  var url = 'http://rpxnow.com/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN;
+  request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+          console.log(body) // Print the google web page.
+       }else{
+         console.log('Error occured');
+       }
+  });
 }
