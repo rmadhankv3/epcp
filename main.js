@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var TOKEN = '';
-var http = require('http');
+var https = require('https');
 
 
 var bodyParser = require('body-parser');
@@ -34,7 +34,7 @@ var server = app.listen(process.env.PORT, function () {
 
 
 function getIdentifier(res){
-  
+
   var options = {
     host: 'rpxnow.com',
     port: 80,
@@ -42,7 +42,7 @@ function getIdentifier(res){
     method: 'GET'
   };
 
-  http.request(options, function(res) {
+  https.request(options, function(res) {
     console.log('STATUS: ' + res.statusCode);
     console.log('HEADERS: ' + JSON.stringify(res.headers));
     res.setEncoding('utf8');
