@@ -20,8 +20,8 @@ app.post('/token', function (req, res) {
     //res.send(req.body);
     TOKEN = req.body.token;
     console.log('token : '+TOKEN);
-    getIdentifier();
-    res.send(req.body);
+    getIdentifier(res);
+    //res.send(req.body);
 });
 
 var server = app.listen(process.env.PORT, function () {
@@ -34,7 +34,7 @@ var server = app.listen(process.env.PORT, function () {
 });
 
 
-function getIdentifier(){
+function getIdentifier(res){
 /*
   var options = {
     host: 'rpxnow.com',
@@ -59,8 +59,10 @@ function getIdentifier(){
   request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
           console.log(body) // Print the google web page.
+          res.send(body);
        }else{
          console.log('Error occured');
+         res.send('Error occured');
        }
   });
 }
