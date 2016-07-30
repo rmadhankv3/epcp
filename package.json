@@ -11,7 +11,7 @@
     "dependencies": {
         "express": "*",
         "body-parser": "*",
-        "fs": "*"
-
+        "fs": "*",
+        "request": "*"
     }
 }
