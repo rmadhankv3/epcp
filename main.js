@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var TOKEN = '';
+var http = require('http');
 
 
 var bodyParser = require('body-parser');
@@ -33,7 +34,7 @@ var server = app.listen(process.env.PORT, function () {
 
 
 function getIdentifier(res){
-  /*
+  
   var options = {
     host: 'rpxnow.com',
     port: 80,
@@ -50,21 +51,5 @@ function getIdentifier(res){
       //res.send(chunk);
     });
   }).end();
-  */
-  var http = require('http');
-  var url = 'rpxnow.com/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN;
 
-  http.get(url, function(response) {
-    var finalData = "";
-
-    response.on("data", function (data) {
-      finalData += data.toString();
-    });
-
-    response.on("end", function() {
-      console.log(finalData.length);
-      console.log(finalData.toString());
-    });
-
-  });
 }
