@@ -46,8 +46,9 @@ function getIdentifier(res){
   var url = 'http://rpxnow.com/api/v2/auth_info?apiKey=90ef369262e67fe16d54c454afcf1b6fb11e8d07&token='+TOKEN;
   request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-          console.log("Email : "+ body.profile); // Print the google web page.
-          res.send(body);
+          console.log("Email : "+ body); // Print the google web page.
+          body = JSON.parse(body);
+          res.send(body.profile.email);
        }else{
          console.log('Error occured');
          res.send('Error occured');
