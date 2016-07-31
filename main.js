@@ -47,7 +47,7 @@ function getIdentifier(res){
   request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
           console.log("Email : "+ body); // Print the google web page.
-          res.send(body);
+          res.send(body.profile);
        }else{
          console.log('Error occured');
          res.send('Error occured');
