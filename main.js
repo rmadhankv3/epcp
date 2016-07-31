@@ -3,6 +3,7 @@ var app = express();
 var fs = require("fs");
 var TOKEN = '';
 var request = require('request');
+var conn;
 
 
 var bodyParser = require('body-parser');
@@ -38,7 +39,7 @@ var server = app.listen(process.env.PORT, function () {
   var port = server.address().port;
 
   console.log("Example app listening at http://"+host+":"+port);
-
+  getSalesforce();
 });
 
 
@@ -54,6 +55,24 @@ function getIdentifier(res){
          res.send('Error occured');
        }
   });
+}
+
+function getSalesforce(){
+
+    conn = new sf.Connection({
+        oauth2 : {
+          // you can change loginUrl to connect to sandbox or prerelease env.
+          loginUrl : 'https://test.salesforce.com',
+          clientId : '3MVG9w8uXui2aB_rodqud.uaqlQvwavdhxR5MO6tq49OQpZjsOj5EvREddMuyjb4qEMeszTZ17_WIgdtNC46N',
+          clientSecret : '125619540777631023',
+          redirectUri : 'https://heroku-epcp.herokuapp.com/token'
+        }
+    });
+    conn.login('2212480@gso1.lly.elancodev', 'Madhan!1', function(err, userInfo) {
+      if (err) { return console.error(err); }
+    });
+
+
 }
 
 function getAccount(res, email){
