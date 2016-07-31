@@ -78,7 +78,7 @@ function getSalesforce(){
 
 function getAccount(res, email){
     var records = [];
-    conn.query("SELECT Id, Name, email FROM contact where email = "+email, function(err, result) {
+    conn.query("SELECT Id, Name, email FROM contact where email = '"+email+"'", function(err, result) {
       if (err) { return console.error(err); }
       console.log("total : " + result.totalSize);
       console.log("fetched : " + result.records.length);
