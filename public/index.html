@@ -36,9 +36,30 @@ and open the template in the editor.
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(e, s);
         })();
+
+        function janrainWidgetOnload() {
+            janrain.events.onProviderLoginSuccess.addHandler(function(something) {
+              console.log("Login Succcess!");
+            });
+            janrain.events.onProviderLoginError.addHandler(function(response) {
+              console.log("Login Error!");
+              console.log(response.err.code);
+              console.log(response.err.msg);
+              console.log(response.origin);
+              console.log(response.stat);
+            });
+            janrain.events.onReturnExperienceFound.addHandler(
+              function(response) {
+                document.getElementById('greeting').innerHTML = "Welcome back " + response.name;
+            });
+            janrain.events.onProviderLoginComplete.addHandler(function(response) {
+              _trackEvent('Login', 'loginComplete', 'providerName', response.provider);
+            });
+        }
         </script>
     </head>
     <body>
         <div id="janrainEngageEmbed"></div>
+        <div id="greeting"></div>
     </body>
 </html>
