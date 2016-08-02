@@ -72,6 +72,13 @@ function getSalesforce(){
     conn.login('2212480@gso1.lly.elancodev', 'Madhan!1', function(err, userInfo) {
       if (err) { return console.error(err); }
     });
+    conn.on("refresh", function(accessToken, res) {
+      // Refresh event will be fired when renewed access token
+      // to store it in your storage for next request
+      console.log('refresh event triggered');
+      console.log('accessToken = '+accessToken);
+      console.log('res = '+res);
+    });
 
 
 }
