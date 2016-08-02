@@ -90,7 +90,6 @@ function getAccount(res, email){
       console.log("total : " + result.totalSize);
       console.log("fetched : " + result.records.length);
       if(result.records.length == 1){
-        res.name = result.records[0].name;
         res.send('successfully logged in');
       }else {
         res.send('Sorry... cant loggin');
