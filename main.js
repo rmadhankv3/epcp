@@ -22,7 +22,8 @@ app.post('/token', function (req, res) {
     TOKEN = req.body.token;
     console.log('token : '+TOKEN);
     if(TOKEN != ''){
-      getIdentifier(res);
+      //getIdentifier(res);
+      res.sendFile( __dirname + "/" + "index.html" );
     }else {
       res.send('nothing found');
     }
