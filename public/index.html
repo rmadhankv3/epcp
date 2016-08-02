@@ -53,7 +53,8 @@ and open the template in the editor.
                 document.getElementById('greeting').innerHTML = "Welcome back " + response.name;
             });
             janrain.events.onProviderLoginComplete.addHandler(function(response) {
-              _trackEvent('Login', 'loginComplete', 'providerName', response.provider);
+              //_trackEvent('Login', 'loginComplete', 'providerName', response.provider);
+              console.log('response.provider = '+response.provider);
             });
         }
         </script>
